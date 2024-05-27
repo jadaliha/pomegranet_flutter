@@ -1,0 +1,3 @@
+class ServerPaths {
+  ServerPaths._();
+}
