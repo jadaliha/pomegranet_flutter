@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pomegranet/application/core/consts/icon_assets.dart';
 import 'package:pomegranet/application/features/restaurant/domain/entities/category.dart';
 import 'package:pomegranet/application/features/restaurant/domain/entities/food.dart';
 import 'package:pomegranet/application/features/restaurant/domain/entities/meal.dart';
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: Padding(
             padding: const EdgeInsets.only(left: 16),
             child: Image.asset(
-              'assets/icons/menu.png',
+              IconsAssets.menu,
               color: const Color(0xFF637381),
             ),
           ),
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               height: 40,
               padding: const EdgeInsets.only(right: 16),
               child: Image.asset(
-                'assets/icons/cart.png',
+                IconsAssets.cart,
                 color: const Color(0xFF637381),
               ),
             ),
@@ -179,7 +180,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           tabs: [
             Tab(
               icon: Image.asset(
-                'assets/icons/home.png',
+                IconsAssets.home,
                 height: 24,
                 color: selectedIndex == 0
                     ? const Color(0xFF22B4B4)
@@ -189,7 +190,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Tab(
               icon: Image.asset(
-                'assets/icons/search.png',
+                IconsAssets.search,
                 height: 24,
                 color: selectedIndex == 1
                     ? const Color(0xFF22B4B4)
@@ -199,7 +200,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Tab(
               icon: Image.asset(
-                'assets/icons/calendar.png',
+                IconsAssets.calendar,
                 height: 24,
                 color: selectedIndex == 2
                     ? const Color(0xFF22B4B4)
@@ -209,7 +210,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Tab(
               icon: Image.asset(
-                'assets/icons/recipe.png',
+                IconsAssets.recipe,
                 height: 24,
                 color: selectedIndex == 3
                     ? const Color(0xFF22B4B4)

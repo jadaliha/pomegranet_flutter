@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pomegranet/application/core/consts/icon_assets.dart';
 import 'package:pomegranet/application/features/restaurant/domain/entities/food.dart';
 
 class ItemCard extends StatelessWidget {
@@ -54,7 +55,7 @@ class ItemCard extends StatelessWidget {
                         spacing: 6,
                         children: [
                           Image.asset(
-                            'assets/icons/star.png',
+                            IconsAssets.star,
                             color: const Color(0xFF22B4B4),
                             height: 12,
                           ),
@@ -80,7 +81,7 @@ class ItemCard extends StatelessWidget {
                     spacing: 6,
                     children: [
                       Image.asset(
-                        'assets/icons/time.png',
+                        IconsAssets.time,
                         color: const Color(0xFF22B4B4),
                         height: 12,
                       ),
@@ -104,7 +105,7 @@ class ItemCard extends StatelessWidget {
                     spacing: 6,
                     children: [
                       Image.asset(
-                        'assets/icons/calorie.png',
+                        IconsAssets.calorie,
                         color: const Color(0xFF22B4B4),
                         height: 12,
                       ),
@@ -128,7 +129,7 @@ class ItemCard extends StatelessWidget {
                     spacing: 6,
                     children: [
                       Image.asset(
-                        'assets/icons/shop.png',
+                        IconsAssets.shop,
                         color: const Color(0xFF22B4B4),
                         height: 12,
                       ),
@@ -167,7 +168,7 @@ class ItemCard extends StatelessWidget {
                     ),
                   ]),
               child: Image.asset(
-                'assets/icons/add.png',
+                IconsAssets.add,
                 color: const Color(0xFF212B36),
               ),
             ),
