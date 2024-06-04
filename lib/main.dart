@@ -39,35 +39,6 @@ class _RecipePageState extends State<RecipePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Image.asset(
-              IconsAssets.arrowLeft,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        leadingWidth: 45,
-        backgroundColor: Colors.transparent,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: InkWell(
-              onTap: () {},
-              child: Image.asset(
-                IconsAssets.archive,
-                color: Colors.white,
-                height: 25,
-              ),
-            ),
-          ),
-        ],
-      ),
       body: Column(
         children: [
           Expanded(
@@ -88,6 +59,39 @@ class _RecipePageState extends State<RecipePage> {
                           Container(
                             color: Colors.black.withOpacity(0.24),
                             height: MediaQuery.of(context).size.height / 2.2,
+                          ),
+                          Positioned(
+                            top: MediaQuery.of(context).viewPadding.top,
+                            right: MediaQuery.of(context).viewPadding.right,
+                            left: MediaQuery.of(context).viewPadding.left,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Image.asset(
+                                      IconsAssets.arrowLeft,
+                                      color: Colors.white,
+                                      height: 25,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {},
+                                    child: Image.asset(
+                                      IconsAssets.archive,
+                                      color: Colors.white,
+                                      height: 25,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           )
                         ],
                       ),
@@ -272,8 +276,8 @@ class _RecipePageState extends State<RecipePage> {
                               Tab(text: 'Reviews'),
                             ],
                           ),
-                          SizedBox(
-                            height: 800,
+                          const SizedBox(
+                            height: 1000,
                             child: TabBarView(
                               children: [
                                 IngredientsTab(),
