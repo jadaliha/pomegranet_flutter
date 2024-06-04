@@ -14,4 +14,6 @@ class IconsAssets {
   static const add = '${_path}add.png';
   static const location = '${_path}location.png';
   static const like = '${_path}heart.png';
+  static const arrowLeft = '${_path}arrow-left.png';
+  static const archive = '${_path}archive.png';
 }
