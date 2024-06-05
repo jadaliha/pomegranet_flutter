@@ -276,15 +276,12 @@ class _RecipePageState extends State<RecipePage> {
                               Tab(text: 'Reviews'),
                             ],
                           ),
-                          const SizedBox(
-                            height: 1000,
-                            child: TabBarView(
-                              children: [
-                                IngredientsTab(),
-                                RecipeTab(),
-                                ReviewsTab(),
-                              ],
-                            ),
+                          TabBarView(
+                            children: [
+                              IngredientsTab(),
+                              RecipeTab(),
+                              ReviewsTab(),
+                            ],
                           ),
                         ],
                       ),
