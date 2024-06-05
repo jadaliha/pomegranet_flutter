@@ -28,9 +28,7 @@ class ItemCard extends StatelessWidget {
                   horizontal: 12,
                 ),
                 decoration: const BoxDecoration(
-                  color: Color(
-                    0xFFFFFFFF,
-                  ),
+                  color: Colors.white,
                   borderRadius: BorderRadius.all(
                     Radius.circular(8),
                   ),
