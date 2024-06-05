@@ -294,61 +294,72 @@ class _RecipePageState extends State<RecipePage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+            decoration: const BoxDecoration(
+              border: Border(
+                top: BorderSide(color: Colors.red),
+              ),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                OutlinedButton(
-                  onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(
-                      color: const Color(0xFF22B4B4).withOpacity(0.48),
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: const Color(0xFF22B4B4).withOpacity(0.48),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Text(
-                      'Order \$12.00',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.publicSans(
-                        textStyle: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF22B4B4),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Text(
+                        'Order \$12.00',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.publicSans(
+                          textStyle: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF22B4B4),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor: const MaterialStatePropertyAll(
-                        Color(0xFF22B4B4),
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
+                const SizedBox(
+                  width: 16,
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor: const MaterialStatePropertyAll(
+                          Color(0xFF22B4B4),
                         ),
-                      ),
-                      shadowColor:
-                          MaterialStateProperty.all<Color>(Colors.red)),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Text(
-                      'Add to journal',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.publicSans(
-                        textStyle: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        shadowColor:
+                            MaterialStateProperty.all<Color>(Colors.red)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Text(
+                        'Add to journal',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.publicSans(
+                          textStyle: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
