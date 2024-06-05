@@ -296,9 +296,10 @@ class _RecipePageState extends State<RecipePage> {
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(color: Colors.red),
+                top: BorderSide(
+                    color: const Color(0xFF919EAB).withOpacity(0.24)),
               ),
             ),
             child: Row(
