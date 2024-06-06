@@ -276,12 +276,15 @@ class _RecipePageState extends State<RecipePage> {
                               Tab(text: 'Reviews'),
                             ],
                           ),
-                          TabBarView(
-                            children: [
-                              IngredientsTab(),
-                              RecipeTab(),
-                              ReviewsTab(),
-                            ],
+                          const SizedBox(
+                            height: 1000,
+                            child: TabBarView(
+                              children: [
+                                IngredientsTab(),
+                                RecipeTab(),
+                                ReviewsTab(),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -583,11 +586,11 @@ class IngredientsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+      child: Column(
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
@@ -650,24 +653,21 @@ class IngredientsTab extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        const Expanded(
-          child: Column(
-            children: [
-              IngredientItem(name: 'Tomato', calories: '45 cal/300 gr'),
-              IngredientItem(name: 'Minced meat', calories: '65 cal/410 gr'),
-              IngredientItem(name: 'Mozzarella', calories: '40 cal/140 gr'),
-              IngredientItem(name: 'Onion', calories: '8 cal/140 gr'),
-              IngredientItem(name: 'Pepper', calories: '6 cal/110 gr'),
-              IngredientItem(name: 'Mushroom', calories: '15 cal/140 gr'),
-              IngredientItem(name: 'Lettuce', calories: '10 cal/100 gr'),
-              IngredientItem(name: 'Bread', calories: '6 cal/110 gr'),
-            ],
+          const Expanded(
+            child: Column(
+              children: [
+                IngredientItem(name: 'Tomato', calories: '45 cal/300 gr'),
+                IngredientItem(name: 'Minced meat', calories: '65 cal/410 gr'),
+                IngredientItem(name: 'Mozzarella', calories: '40 cal/140 gr'),
+                IngredientItem(name: 'Onion', calories: '8 cal/140 gr'),
+                IngredientItem(name: 'Pepper', calories: '6 cal/110 gr'),
+                IngredientItem(name: 'Mushroom', calories: '15 cal/140 gr'),
+                IngredientItem(name: 'Lettuce', calories: '10 cal/100 gr'),
+                IngredientItem(name: 'Bread', calories: '6 cal/110 gr'),
+              ],
+            ),
           ),
-        ),
-        const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('You might also like',
@@ -676,8 +676,8 @@ class IngredientsTab extends StatelessWidget {
               RecommendedItems(),
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -691,6 +691,7 @@ class IngredientItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
         backgroundImage: AssetImage(
             'assets/images/ingrediants/${name.toLowerCase().replaceAll(' ', '_')}.png'),
