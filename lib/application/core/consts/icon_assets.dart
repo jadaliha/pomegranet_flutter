@@ -16,4 +16,5 @@ class IconsAssets {
   static const like = '${_path}heart.png';
   static const arrowLeft = '${_path}arrow-left.png';
   static const archive = '${_path}archive.png';
+  static const edit = '${_path}edit.png';
 }
