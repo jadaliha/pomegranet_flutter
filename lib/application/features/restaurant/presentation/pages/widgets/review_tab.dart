@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pomegranet/application/core/consts/icon_assets.dart';
+import 'package:pomegranet/application/features/restaurant/domain/entities/review.dart';
 import 'package:pomegranet/application/features/restaurant/presentation/pages/widgets/review_rate_item.dart';
 
 class ReviewsTab extends StatelessWidget {
@@ -14,15 +16,13 @@ class ReviewsTab extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 24),
           child: Column(
             children: [
-              Container(
-                child: Text(
-                  'Average rating',
-                  style: GoogleFonts.rubik(
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF212B36),
-                    ),
+              Text(
+                'Average rating',
+                style: GoogleFonts.rubik(
+                  textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF212B36),
                   ),
                 ),
               ),
@@ -41,35 +41,23 @@ class ReviewsTab extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.star_rounded,
-                      color: Color(0xFFFFC107),
-                      size: 32,
-                    ),
-                    Icon(
-                      Icons.star_rounded,
-                      color: Color(0xFFFFC107),
-                      size: 32,
-                    ),
-                    Icon(
-                      Icons.star_rounded,
-                      color: Color(0xFFFFC107),
-                      size: 32,
-                    ),
-                    Icon(
-                      Icons.star_rounded,
-                      color: Color(0xFFFFC107),
-                      size: 32,
-                    ),
-                    Icon(
-                      Icons.star_half_rounded,
-                      color: Color(0xFFFFC107),
-                      size: 32,
-                    ),
-                  ],
+                child: RatingBar.builder(
+                  glow: false,
+                  itemSize: 28,
+                  unratedColor: const Color(0xFF919EAB).withOpacity(0.32),
+                  initialRating: 4,
+                  minRating: 0,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  ignoreGestures: true,
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star_rate_rounded,
+                    color: Color(0xFFFFC107),
+                  ),
+                  onRatingUpdate: (rating) {
+                    //print(rating);
+                  },
                 ),
               ),
               Text(
@@ -166,7 +154,7 @@ class ReviewsTab extends StatelessWidget {
             ),
           ),
           child: Container(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
               color: const Color(0xFFF4F6F8),
               borderRadius: BorderRadius.circular(16),
@@ -175,7 +163,7 @@ class ReviewsTab extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Write your review',
+                  'Add review',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.publicSans(
                     textStyle: const TextStyle(
@@ -189,6 +177,7 @@ class ReviewsTab extends StatelessWidget {
                   height: 24,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Your review about this Product:',
@@ -204,7 +193,23 @@ class ReviewsTab extends StatelessWidget {
                     const SizedBox(
                       height: 12,
                     ),
-                    const Icon(Icons.star_border_outlined),
+                    RatingBar.builder(
+                      glow: false,
+                      itemSize: 28,
+                      unratedColor: const Color(0xFF919EAB).withOpacity(0.32),
+                      initialRating: 3,
+                      minRating: 0,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star_rate_rounded,
+                        color: Color(0xFFFFC107),
+                      ),
+                      onRatingUpdate: (rating) {
+                        //print(rating);
+                      },
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -238,7 +243,7 @@ class ReviewsTab extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 TextFormField(
@@ -269,7 +274,7 @@ class ReviewsTab extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 TextFormField(
@@ -300,11 +305,231 @@ class ReviewsTab extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 6,
+                            horizontal: 16,
+                          ),
+                          side: BorderSide(
+                            color: const Color(0xFF919EAB).withOpacity(0.32),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        child: Text(
+                          'Cancel',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.publicSans(
+                            textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF212B36),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              const EdgeInsets.symmetric(
+                                vertical: 6,
+                                horizontal: 16,
+                              ),
+                            ),
+                            backgroundColor: const MaterialStatePropertyAll(
+                              Color(0xFF22B4B4),
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            shadowColor:
+                                MaterialStateProperty.all<Color>(Colors.red)),
+                        child: Text(
+                          'Post review',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.publicSans(
+                            textStyle: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
-        )
+        ),
+        SizedBox(
+          height: 600,
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: Review.mockData.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ReviewItem(review: Review.mockData[index]);
+            },
+          ),
+        ),
       ],
+    );
+  }
+}
+
+class ReviewItem extends StatelessWidget {
+  const ReviewItem({
+    super.key,
+    required this.review,
+  });
+  final Review review;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(review.avatar),
+            ),
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              review.name,
+              style: GoogleFonts.publicSans(
+                textStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF212B36),
+                ),
+              ),
+            ),
+            subtitle: Text(
+              review.dateTime.toIso8601String(),
+              style: GoogleFonts.publicSans(
+                textStyle: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF637381),
+                ),
+              ),
+            ),
+          ),
+          RatingBar.builder(
+            glow: false,
+            itemSize: 18,
+            unratedColor: const Color(0xFF919EAB).withOpacity(0.32),
+            initialRating: 4,
+            minRating: 0,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            ignoreGestures: true,
+            itemBuilder: (context, _) => const Icon(
+              Icons.star_rate_rounded,
+              color: Color(0xFFFFC107),
+            ),
+            onRatingUpdate: (rating) {
+              //print(rating);
+            },
+          ),
+          Visibility(
+            visible: review.isVerifiedPurchase,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 8,
+                children: [
+                  Image.asset(
+                    IconsAssets.verified,
+                    color: const Color(0xFF22B4B4),
+                    height: 16,
+                  ),
+                  Text(
+                    'Verified purchase',
+                    style: GoogleFonts.publicSans(
+                      textStyle: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF22B4B4),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Text(
+            review.content,
+            style: GoogleFonts.publicSans(
+              textStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF212B36),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Was this review helpful to you?',
+              style: GoogleFonts.publicSans(
+                textStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF212B36),
+                ),
+              ),
+            ),
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 8,
+            children: [
+              Image.asset(
+                review.isVerifiedPurchase
+                    ? IconsAssets.thumbsUp
+                    : IconsAssets.check,
+                color: const Color(0xFF212B36),
+                height: 16,
+              ),
+              Text(
+                '${review.isVerifiedPurchase ? 'Thank' : 'Helpful'} (${review.like})',
+                style: GoogleFonts.publicSans(
+                  textStyle: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF212B36),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
