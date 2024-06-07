@@ -17,4 +17,7 @@ class IconsAssets {
   static const arrowLeft = '${_path}arrow-left.png';
   static const archive = '${_path}archive.png';
   static const edit = '${_path}edit.png';
+  static const verified = '${_path}verified.png';
+  static const check = '${_path}check.png';
+  static const thumbsUp = '${_path}thumbs_up.png';
 }
