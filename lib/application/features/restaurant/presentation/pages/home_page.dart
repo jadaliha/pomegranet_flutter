@@ -6,6 +6,7 @@ import 'package:pomegranet/application/features/restaurant/domain/entities/food.
 import 'package:pomegranet/application/features/restaurant/domain/entities/meal.dart';
 import 'package:pomegranet/application/features/restaurant/domain/entities/restaurant.dart';
 import 'package:pomegranet/application/features/restaurant/domain/entities/world_cuisine.dart';
+import 'package:pomegranet/application/features/restaurant/presentation/pages/food_detail_page.dart';
 import 'package:pomegranet/application/features/restaurant/presentation/pages/widgets/food_card.dart';
 import 'package:pomegranet/application/features/restaurant/presentation/pages/widgets/heading.dart';
 import 'package:pomegranet/application/features/restaurant/presentation/pages/widgets/item_card.dart';
@@ -103,7 +104,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   itemCount: Food.mockData.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
-                    return ItemCard(food: Food.mockData[index]);
+                    return ItemCard(
+                      food: Food.mockData[index],
+                      callback: () {
+                        print('object');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FoodDetailPage(),
+                          ),
+                        );
+                      },
+                    );
                   },
                 ),
               ),
