@@ -12,7 +12,7 @@ class RecommendedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
       margin: const EdgeInsets.only(right: 16),
       child: SizedBox(
         width: MediaQuery.of(context).size.width / 2,
@@ -32,14 +32,14 @@ class RecommendedItem extends StatelessWidget {
                   vertical: 16,
                   horizontal: 12,
                 ),
-                decoration: const BoxDecoration(
-                  color: Color(
-                    0xFFFFFFFF,
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF919EAB).withOpacity(0.12),
+                    spreadRadius: 0,
+                    blurRadius: 13,
+                    offset: const Offset(0, 0),
                   ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                ),
+                ]),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
