@@ -157,6 +157,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: TabBar(
           indicatorSize: TabBarIndicatorSize.tab,
           controller: tabController,
+          labelPadding: EdgeInsets.zero,
           labelStyle: GoogleFonts.rubik(
             textStyle: const TextStyle(
               fontSize: 12,
