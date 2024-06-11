@@ -243,13 +243,14 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                           TabBar(
                             labelStyle: GoogleFonts.rubik(
                               textStyle: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xFF22B4B4),
                               ),
                             ),
                             indicatorColor: const Color(0xFF22B4B4),
                             indicatorSize: TabBarIndicatorSize.tab,
+                            indicatorPadding: EdgeInsets.zero,
                             tabs: const [
                               Tab(text: 'Ingredients'),
                               Tab(text: 'Recipe'),

@@ -8,7 +8,7 @@ class RecommendedItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 270,
+      height: 280,
       child: ListView.builder(
         itemCount: Food.mockData.length,
         scrollDirection: Axis.horizontal,
