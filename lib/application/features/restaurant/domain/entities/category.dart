@@ -17,7 +17,7 @@ class Category extends Equatable {
     Category(title: 'Meat', image: 'assets/images/categories/meat.png'),
     Category(title: 'Salad', image: 'assets/images/categories/salad.png'),
     Category(title: 'Fish', image: 'assets/images/categories/fish.png'),
-    Category(title: 'Rolls', image: 'assets/images/categories/rolls.png'),
+    // Category(title: 'Rolls', image: 'assets/images/categories/rolls.png'),
     Category(title: 'Soup', image: 'assets/images/categories/soup.png'),
     Category(
         title: 'Kid-Friendly',

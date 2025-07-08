@@ -346,23 +346,23 @@ class ReviewsTab extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all<EdgeInsets>(
+                            padding: WidgetStateProperty.all<EdgeInsets>(
                               const EdgeInsets.symmetric(
                                 vertical: 6,
                                 horizontal: 16,
                               ),
                             ),
-                            backgroundColor: const MaterialStatePropertyAll(
+                            backgroundColor: const WidgetStatePropertyAll(
                               Color(0xFF22B4B4),
                             ),
-                            shape: MaterialStateProperty.all<
+                            shape: WidgetStateProperty.all<
                                 RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             shadowColor:
-                                MaterialStateProperty.all<Color>(Colors.red)),
+                                WidgetStateProperty.all<Color>(Colors.red)),
                         child: Text(
                           'Post review',
                           textAlign: TextAlign.center,
@@ -386,7 +386,7 @@ class ReviewsTab extends StatelessWidget {
           height: 600,
           child: ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: Review.mockData.length,
             itemBuilder: (BuildContext context, int index) {
               return ReviewItem(review: Review.mockData[index]);
